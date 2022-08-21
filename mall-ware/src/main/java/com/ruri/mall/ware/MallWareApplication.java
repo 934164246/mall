@@ -1,4 +1,4 @@
-package com.ruri.mail.ware;
+package com.ruri.mall.ware;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

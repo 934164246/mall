@@ -1,10 +1,10 @@
-package com.ruri.mail.ware;
+package com.ruri.mall.product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MallWareApplicationTests {
+class MallProductApplicationTests {
 
     @Test
     void contextLoads() {

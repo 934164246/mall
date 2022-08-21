@@ -1,13 +1,13 @@
-package com.ruri.mail.product;
+package com.ruri.mall.coupon;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MallProductApplicationTests {
+class MallCouponApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
