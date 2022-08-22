@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.92.128:3306/mall_psm
+    url: jdbc:mysql://192.168.92.128:3306/mall_pms
     username: root
     password: liukaiying1314
 
@@ -10,3 +10,6 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+
+server:
+  port: 8083
