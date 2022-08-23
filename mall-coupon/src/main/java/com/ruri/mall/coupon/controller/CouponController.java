@@ -1,9 +1,12 @@
 package com.ruri.mall.coupon.controller;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,11 +27,30 @@ import com.ruri.common.utils.R;
  * @email rurigokou934164246@gmail.com
  * @date 2022-08-20 17:35:41
  */
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value("${coupon.user.name}")
+    private String name;
+    @Value("${coupon.user.password}")
+    private String password;
+
+    @RequestMapping("/test1")
+    public R test() {
+        return R.ok().put("name", name).put("password", password);
+    }
+
+    @RequestMapping("/test")
+    public R memberCoupon() {
+        CouponEntity entity=new CouponEntity();
+        entity.setCouponName("满100减10");
+
+        return R.ok().put("coupons", Collections.singletonList(entity));
+    }
 
     /**
      * 列表

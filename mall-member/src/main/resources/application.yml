@@ -4,6 +4,12 @@ spring:
     url: jdbc:mysql://192.168.92.128:3306/mall_ums
     username: root
     password: liukaiying1314
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: mall-member
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
@@ -12,4 +18,4 @@ mybatis-plus:
       id-type: auto
 
 server:
-  port: 8081
+  port: 9901
