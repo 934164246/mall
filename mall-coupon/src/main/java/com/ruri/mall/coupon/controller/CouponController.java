@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +18,7 @@ import com.ruri.mall.coupon.service.CouponService;
 import com.ruri.common.utils.PageUtils;
 import com.ruri.common.utils.R;
 
+import javax.annotation.Resource;
 
 
 /**
@@ -27,11 +28,11 @@ import com.ruri.common.utils.R;
  * @email rurigokou934164246@gmail.com
  * @date 2022-08-20 17:35:41
  */
-@RefreshScope
 @RestController
+@RefreshScope
 @RequestMapping("coupon/coupon")
 public class CouponController {
-    @Autowired
+    @Resource(name = "couponService")
     private CouponService couponService;
 
     @Value("${coupon.user.name}")
