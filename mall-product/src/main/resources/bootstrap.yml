@@ -1,9 +1,9 @@
 spring:
   application:
-    name: mall-gateway
+    name: mall-product
   cloud:
     nacos:
       config:
         server-addr: 192.168.92.128:8848
-        namespace: 9457bc9a-cbbe-4a87-b2b9-152f95c78c47
+        namespace: c2047dee-7a22-48d8-b691-2cd3ff12a2d9
         file-extension: yml

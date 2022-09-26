@@ -8,15 +8,18 @@
 		<version>2.7.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.ruri.maill</groupId>
 	<artifactId>mall-coupon</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mall-coupon</name>
 	<description>mall-coupon</description>
+
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.3</spring-cloud.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.ruri.mall</groupId>

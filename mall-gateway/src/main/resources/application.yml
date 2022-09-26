@@ -1,0 +1,22 @@
+server:
+  port: 88
+spring:
+  application:
+    name: mall-coupon
+  cloud:
+    nacos:
+      config:
+        refresh-enabled: true
+        file-extension: yml
+      discovery:
+        server-addr: 192.168.92.128:8848
+    gateway:
+      routes:
+        - id: test1
+          uri: https://www.baidu.com
+          predicates:
+            - Query=url, baidu
+        - id: test2
+          uri: https://www.qq.com
+          predicates:
+            - Query=url, qq

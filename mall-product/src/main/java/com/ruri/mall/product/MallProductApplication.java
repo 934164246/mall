@@ -13,7 +13,6 @@ import org.springframework.context.annotation.ImportResource;
  * @author GokouRuri
  */
 @MapperScan("com.ruri.mall.product.dao")
-@ImportResource("")
 @EnableDiscoveryClient
 @SpringBootApplication
 public class MallProductApplication {
