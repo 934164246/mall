@@ -9,6 +9,10 @@
 package io.renren;
 
 import io.renren.service.DynamicDataSourceTestService;
+import org.apache.commons.beanutils.PropertyUtils;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +29,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class DynamicDataSourceTest {
     @Autowired
     private DynamicDataSourceTestService dynamicDataSourceTestService;
+    @Nullable
+
+    @BeforeClass
 
     @Test
     public void test(){
-        String s="123123213";
-        char[] chars = s.toCharArray();
+
     }
 
 }
