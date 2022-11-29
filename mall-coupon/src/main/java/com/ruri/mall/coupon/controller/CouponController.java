@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +31,7 @@ import javax.annotation.Resource;
 @RefreshScope
 @RequestMapping("coupon/coupon")
 public class CouponController {
+
     @Resource(name = "couponService")
     private CouponService couponService;
 

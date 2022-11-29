@@ -23,7 +23,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<CategoryEntity> page = this.page(
                 new Query<CategoryEntity>().getPage(params),
-                new QueryWrapper<CategoryEntity>()
+                new QueryWrapper<>()
         );
 
         return new PageUtils(page);
@@ -34,11 +34,13 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         List<CategoryEntity> list = baseMapper.selectList(null);
 
         //按照父级id分类
-        Map<Long, List<CategoryEntity>> collect = list.stream().sorted(Comparator.comparingInt(item -> Optional.ofNullable(item.getSort()).orElse(0)))
+        Map<Long, List<CategoryEntity>> collect = list.stream()
+                .sorted(Comparator.comparingInt(item -> Optional.ofNullable(item.getSort()).orElse(0)))
                 .collect(Collectors.groupingBy(CategoryEntity::getParentCid));
 
         //匹配孩子节点并且挑选出父节点
-        return list.stream().peek(item -> item.setChild(collect.get(item.getCatId())))
+        return list.stream()
+                .peek(item -> item.setChild(collect.get(item.getCatId())))
                 .filter(item -> item.getCatLevel().equals(1))
                 .collect(Collectors.toList());
     }

@@ -40,7 +40,7 @@ public class CategoryController {
         //分级菜单树形结构查询结果
         List<CategoryEntity> categoryEntities = categoryService.listWithTree();
 
-        return R.ok().put("page", categoryEntities);
+        return R.ok().put("tree", categoryEntities);
     }
 
 

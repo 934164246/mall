@@ -23,6 +23,6 @@ public interface CategoryService extends IService<CategoryEntity> {
      *
      * @return 结果
      */
-    public List<CategoryEntity> listWithTree();
+    List<CategoryEntity> listWithTree();
 }
 
