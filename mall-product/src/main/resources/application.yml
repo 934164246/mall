@@ -22,3 +22,7 @@ mybatis-plus:
 
 server:
   port: 9903
+
+logging:
+  level:
+    com.ruri.mall.product: debug

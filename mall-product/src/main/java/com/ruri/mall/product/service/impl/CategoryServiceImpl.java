@@ -16,6 +16,11 @@ import com.ruri.mall.product.entity.CategoryEntity;
 import com.ruri.mall.product.service.CategoryService;
 
 
+/**
+ * 分类服务实现类
+ *
+ * @author GokouRuri
+ */
 @Service("categoryService")
 public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
 

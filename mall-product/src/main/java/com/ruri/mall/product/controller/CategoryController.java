@@ -2,18 +2,13 @@ package com.ruri.mall.product.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
+import com.ruri.mall.product.mapper.CategoryEntityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ruri.mall.product.entity.CategoryEntity;
 import com.ruri.mall.product.service.CategoryService;
-import com.ruri.common.utils.PageUtils;
 import com.ruri.common.utils.R;
 
 
@@ -28,6 +23,7 @@ import com.ruri.common.utils.R;
 @RestController
 @RequestMapping("product/category")
 public class CategoryController {
+
     @Autowired
     private CategoryService categoryService;
 
@@ -52,15 +48,17 @@ public class CategoryController {
     public R info(@PathVariable("catId") Long catId){
 		CategoryEntity category = categoryService.getById(catId);
 
-        return R.ok().put("category", category);
+        return R.ok().put("category", CategoryEntityMapper.INTSANCE.toDto(category));
     }
 
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("product:category:save")
-    public R save(@RequestBody CategoryEntity category){
+    public R save(@RequestBody CategoryEntity category) {
+        category.setShowStatus(1);
+        category.setSort(0);
 		categoryService.save(category);
 
         return R.ok();
@@ -80,10 +78,10 @@ public class CategoryController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @PostMapping("/delete")
     //@RequiresPermissions("product:category:delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
+        boolean flag = categoryService.removeBatchByIds(Arrays.asList(catIds));
 
         return R.ok();
     }
